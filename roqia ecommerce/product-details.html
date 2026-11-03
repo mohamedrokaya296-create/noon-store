@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-details-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            font-family: sans-serif;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image-box {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .thumbnails-box {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .thumbnail.active {
+            border-color: #388e3c;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .brand-badge {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .price-tag {
+            font-size: 24px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-cart, .btn-wishlist {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn-cart {
+            background-color: #ff9f00;
+            color: white;
+        }
+
+        .btn-wishlist {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">← Back to Products</a>
+    </header>
+
+    <main class="product-details-container">
+        <!-- Image Gallery -->
+        <div class="gallery-container">
+            <div class="main-image-box">
+                <img id="mainImage" src="" alt="Main Product Image">
+            </div>
+            <div id="thumbnails" class="thumbnails-box"></div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="info-box">
+            <span id="productBrand" class="brand-badge"></span>
+            <h1 id="productTitle">Loading product...</h1>
+            <div id="productRating"></div>
+            <div id="productPrice" class="price-tag"></div>
+            <p id="productDescription"></p>
+
+            <div class="action-btns">
+                <button class="btn-cart" onclick="addToCart()">🛒 Add to Cart</button>
+                <button class="btn-wishlist" onclick="addToWishlist()">❤️ Add to Wishlist</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="product.js"></script>
+</body>
+</html>
